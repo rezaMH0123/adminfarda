@@ -45,7 +45,7 @@ export default function SignIn() {
               <p className="text-[26px] font-bold leading-[35.55px] text-[#525252]">
                 پنل ادمین بیمه هوشمند فردا
               </p>
-              <p className="mt-2 text-lg font-normal leading-6 text-[#565656]">
+              <p className="mt-2 text-lg font-regular leading-6 text-[#565656]">
                 خوش آمدید!
               </p>
               {/* signin form */}
@@ -54,7 +54,7 @@ export default function SignIn() {
                 <SignInInput
                   register={register("userName")}
                   placeholder="نام کاربری"
-                  className={`mt-6 w-full h-[44px] text-base font-normal leading-6 border px-[14px] rounded-lg outline-none ${
+                  className={`mt-6 w-full h-[44px] text-base font-regular leading-6 border px-[14px] rounded-lg outline-none ${
                     errors.userName ? "border-[#F93838]" : "border-[#B3B3B3]"
                   }`}
                   type="text"
@@ -63,7 +63,7 @@ export default function SignIn() {
                   containerClassname="relative"
                 />
                 {errors.userName && (
-                  <p className="text-[#F93838] text-xs font-normal leading-5 mt-1">
+                  <p className="text-[#F93838] text-xs font-regular leading-5 mt-1">
                     {errors.userName.message}
                   </p>
                 )}
@@ -71,7 +71,7 @@ export default function SignIn() {
                 <SignInInput
                   register={register("password")}
                   placeholder="رمز عبور"
-                  className={`mt-6 w-full h-[44px] text-base font-normal leading-6 border px-[14px] rounded-lg outline-none ${
+                  className={`mt-6 w-full h-[44px] text-base font-regular leading-6 border px-[14px] rounded-lg outline-none ${
                     errors.password ? "border-[#F93838]" : "border-[#B3B3B3]"
                   }`}
                   type={`${showPassword ? "text" : "password"}`}
@@ -81,7 +81,7 @@ export default function SignIn() {
                   containerClassname="relative"
                 />
                 {errors.password && (
-                  <p className="text-[#F93838] text-xs font-normal leading-5 mt-1">
+                  <p className="text-[#F93838] text-xs font-regular leading-5 mt-1">
                     {errors.password.message}
                   </p>
                 )}
@@ -92,7 +92,7 @@ export default function SignIn() {
                   title="ورود"
                 />
               </form>
-              <p className="mt-8 text-sm font-normal leading-5 text-[#565656]">
+              <p className="mt-8 text-sm font-regular leading-5 text-[#565656]">
                 در صورت فراموش کردن رمز عبور با واحد فنی ارتباط برقرار نمایید.
               </p>
             </div>

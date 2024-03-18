@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Regular";
+  src: local("Shabnam") format("truetype"), url("./assets/fonts/Shabnam.ttf");
+}
+
+@font-face {
+  font-family: "Medium";
+  src: local("Shabnam-Medium") format("truetype"),
+    url("./assets/fonts/Shabnam-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Bold";
+  src: local("Shabnam-Bold") format("truetype"),
+    url("./assets/fonts/Shabnam-Bold.ttf");
+}
