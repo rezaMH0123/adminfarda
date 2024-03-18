@@ -12,7 +12,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   // const [isLogin, setIsLoging] = useState(true);
   return (
-    <div className="border border-red-600 h-screen px-12 py-4 overflow-hidden ">
+    <div className="border border-red-600 h-screen  overflow-hidden ">
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Content />} />
