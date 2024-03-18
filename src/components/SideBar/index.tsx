@@ -25,7 +25,11 @@ export default function SideBar() {
             <IconContent
               fill={`${location.pathname === "/" ? "#33BDF1" : "#565656"}`}
             />
-            <span>محتوا</span>
+            <span
+              className={`${location.pathname === "/" && "text-[#33BDF1]"}`}
+            >
+              محتوا
+            </span>
           </li>
         </Link>
         <Link to="/categories">
@@ -39,7 +43,13 @@ export default function SideBar() {
                 location.pathname === "/categories" ? "#33BDF1" : "#565656"
               }`}
             />
-            <span>دسته بندی‌ها</span>
+            <span
+              className={`${
+                location.pathname === "/categories" && "text-[#33BDF1]"
+              }`}
+            >
+              دسته بندی‌ها
+            </span>
           </li>
         </Link>
 
@@ -54,7 +64,13 @@ export default function SideBar() {
                 location.pathname === "/labels" ? "#33BDF1" : "#565656"
               }`}
             />
-            <span>برچسب‌ها</span>
+            <span
+              className={`${
+                location.pathname === "/labels" && "text-[#33BDF1]"
+              }`}
+            >
+              برچسب‌ها
+            </span>
           </li>
         </Link>
         <Link to="/comment">
@@ -68,7 +84,13 @@ export default function SideBar() {
                 location.pathname === "/comment" ? "#33BDF1" : "#565656"
               }`}
             />
-            <span>کامنت ها</span>
+            <span
+              className={`${
+                location.pathname === "/comment" && "text-[#33BDF1]"
+              }`}
+            >
+              کامنت ها
+            </span>
           </li>
         </Link>
         <Link to="/manageFiles">
@@ -82,7 +104,13 @@ export default function SideBar() {
                 location.pathname === "/manageFiles" ? "#33BDF1" : "#565656"
               }`}
             />
-            <span>مدیریت فایل‌ها</span>
+            <span
+              className={`${
+                location.pathname === "/manageFiles" && "text-[#33BDF1]"
+              }`}
+            >
+              مدیریت فایل‌ها
+            </span>
           </li>
         </Link>
       </ul>
