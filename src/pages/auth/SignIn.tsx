@@ -1,11 +1,12 @@
-import person from "../../assets/img/logo/Vector.svg";
 import openEye from "../../assets/img/logo/openEye.svg";
 import closedEye from "../../assets/img/logo/closedEye.svg";
+import person from "../../assets/img/logo/Vector.svg";
 import { useForm, SubmitHandler } from "react-hook-form";
 import fardaIns from "../../assets/img/logo/signinFardaBg.svg";
 import { useState } from "react";
+import SignInInput from "../../components/SignIn/input";
 
-type InputsT = {
+export type InputsT = {
   userName: string;
   password: string;
 };
@@ -39,31 +40,27 @@ export default function SignIn() {
               </p>
               {/* signin form */}
               <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="نام کاربری"
-                    className="mt-6 w-full h-[44px] text-base font-normal leading-6 border border-[#B3B3B3] px-[14px] rounded-lg outline-none"
-                    {...register("userName")}
-                  />
-                  <span className="absolute inset-y-11 left-0 pl-[14px] flex items-center">
-                    <img src={person} />
-                  </span>
-                </div>
-                <div className="relative">
-                  <input
-                    type={`${showPassword ? "text" : "password"}`}
-                    placeholder="رمز عبور"
-                    className="mt-8 w-full h-[44px] text-base font-normal leading-6 border border-[#B3B3B3] px-[14px] rounded-lg outline-none"
-                    {...register("password")}
-                  />
-                  <span
-                    className="absolute inset-y-14 left-0 pl-[14px] flex items-center cursor-pointer"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    <img src={showPassword ? closedEye : openEye} />
-                  </span>
-                </div>
+                {/* username input */}
+                <SignInInput
+                  register={register("userName")}
+                  placeholder="نام کاربری"
+                  className="mt-6 w-full h-[44px] text-base font-normal leading-6 border border-[#B3B3B3] px-[14px] rounded-lg outline-none"
+                  type="text"
+                  spanClassname="absolute inset-y-11 left-0 pl-[14px] flex items-center"
+                  icon={person}
+                  containerClassname="relative"
+                />
+                {/* password input */}
+                <SignInInput
+                  register={register("password")}
+                  placeholder="رمز عبور"
+                  className="mt-6 w-full h-[44px] text-base font-normal leading-6 border border-[#B3B3B3] px-[14px] rounded-lg outline-none"
+                  type={`${showPassword ? "text" : "password"}`}
+                  spanClassname="absolute inset-y-11 left-0 pl-[14px] flex items-center cursor-pointer"
+                  icon={showPassword ? closedEye : openEye}
+                  spanOnclick={() => setShowPassword(!showPassword)}
+                  containerClassname="relative"
+                />
                 <button
                   type="submit"
                   className="mt-8 w-full h-[44px] bg-[#33BDF1] text-[#FFFFFF] text-base font-bold leading-5 rounded-lg"
