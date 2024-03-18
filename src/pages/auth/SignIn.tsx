@@ -5,6 +5,14 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import fardaIns from "../../assets/img/logo/signinFardaBg.svg";
 import { useState } from "react";
 import SignInInput from "../../components/SignIn/input";
+import SignInButton from "../../components/SignIn/button";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const siginSchema = yup.object().shape({
+  userName: yup.string().required("نام کاربری خود را وارد نمایید"),
+  password: yup.string().required("رمز عبور خود را وارد نمایید"),
+});
 
 export type InputsT = {
   userName: string;
@@ -19,7 +27,9 @@ export default function SignIn() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<InputsT>();
+  } = useForm<InputsT>({
+    resolver: yupResolver(siginSchema),
+  });
 
   const onSubmit: SubmitHandler<InputsT> = (data) => {
     console.log(data);
@@ -44,31 +54,45 @@ export default function SignIn() {
                 <SignInInput
                   register={register("userName")}
                   placeholder="نام کاربری"
-                  className="mt-6 w-full h-[44px] text-base font-normal leading-6 border border-[#B3B3B3] px-[14px] rounded-lg outline-none"
+                  className={`mt-6 w-full h-[44px] text-base font-normal leading-6 border px-[14px] rounded-lg outline-none ${
+                    errors.userName ? "border-[#F93838]" : "border-[#B3B3B3]"
+                  }`}
                   type="text"
                   spanClassname="absolute inset-y-11 left-0 pl-[14px] flex items-center"
                   icon={person}
                   containerClassname="relative"
                 />
+                {errors.userName && (
+                  <p className="text-[#F93838] text-xs font-normal leading-5 mt-1">
+                    {errors.userName.message}
+                  </p>
+                )}
                 {/* password input */}
                 <SignInInput
                   register={register("password")}
                   placeholder="رمز عبور"
-                  className="mt-6 w-full h-[44px] text-base font-normal leading-6 border border-[#B3B3B3] px-[14px] rounded-lg outline-none"
+                  className={`mt-6 w-full h-[44px] text-base font-normal leading-6 border px-[14px] rounded-lg outline-none ${
+                    errors.password ? "border-[#F93838]" : "border-[#B3B3B3]"
+                  }`}
                   type={`${showPassword ? "text" : "password"}`}
                   spanClassname="absolute inset-y-11 left-0 pl-[14px] flex items-center cursor-pointer"
                   icon={showPassword ? closedEye : openEye}
                   spanOnclick={() => setShowPassword(!showPassword)}
                   containerClassname="relative"
                 />
-                <button
+                {errors.password && (
+                  <p className="text-[#F93838] text-xs font-normal leading-5 mt-1">
+                    {errors.password.message}
+                  </p>
+                )}
+                {/* sigin button */}
+                <SignInButton
                   type="submit"
                   className="mt-8 w-full h-[44px] bg-[#33BDF1] text-[#FFFFFF] text-base font-bold leading-5 rounded-lg"
-                >
-                  ورود
-                </button>
+                  title="ورود"
+                />
               </form>
-              <p className="mt-8 text-sm font-normal leading-5 text-[#FF8A8A]">
+              <p className="mt-8 text-sm font-normal leading-5 text-[#565656]">
                 در صورت فراموش کردن رمز عبور با واحد فنی ارتباط برقرار نمایید.
               </p>
             </div>
