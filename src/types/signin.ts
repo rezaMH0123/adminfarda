@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 export type SignInInputsT = {
@@ -8,7 +9,8 @@ export type SignInInputsT = {
 export interface SignInButtonPropsI {
   type: "submit";
   className: string;
-  title: string;
+  title: string | ReactNode;
+  disable: boolean;
 }
 
 export interface SignInInputPropsI {

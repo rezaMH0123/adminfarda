@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { SignInInputsT } from "../../types/signin";
 import toast from "react-hot-toast";
 import Success from "../../assets/img/logo/success.svg";
+import Loading from "../../components/Loading";
 
 const siginSchema = yup.object().shape({
   userName: yup
@@ -34,6 +35,7 @@ const siginSchema = yup.object().shape({
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const {
@@ -46,21 +48,25 @@ export default function SignIn() {
   });
 
   const onSubmit: SubmitHandler<SignInInputsT> = (data) => {
-    console.log(data);
-    reset();
-    navigate("/");
-    toast.custom((t) => (
-      <div
-        className={`${
-          t.visible ? "animate-enter" : "animate-leave"
-        } h-[40px] w-[350px] bg-[#76f18b] rounded-lg flex items-center justify-end`}
-      >
-        <p className="mr-2 font-ShabnamRegular text-[#000]">
-          .با موفقیت وارد شدید
-        </p>
-        <img src={Success} className="mr-4" />
-      </div>
-    ));
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      console.log(data);
+      reset();
+      navigate("/");
+      toast.custom((t) => (
+        <div
+          className={`${
+            t.visible ? "animate-enter" : "animate-leave"
+          } h-[40px] w-[350px] bg-[#76f18b] rounded-lg flex items-center justify-end`}
+        >
+          <p className="mr-2 font-ShabnamRegular text-[#000]">
+            .با موفقیت وارد شدید
+          </p>
+          <img src={Success} className="mr-4" />
+        </div>
+      ));
+    }, 1500);
   };
 
   return (
@@ -115,8 +121,11 @@ export default function SignIn() {
                 {/* sigin button */}
                 <SignInButton
                   type="submit"
-                  className="mt-8 w-full h-[44px] bg-[#33BDF1] text-[#FFFFFF] text-base font-ShabnamBold leading-5 rounded-lg"
-                  title="ورود"
+                  className="mt-8 w-full h-[44px] bg-[#33BDF1] text-[#FFFFFF] text-base font-ShabnamBold leading-5 rounded-lg flex items-center justify-center disabled:bg-[#a2e5fd] disabled:cursor-not-allowed"
+                  title={
+                    loading ? <Loading className={"bg-[#565656]"} /> : "ورود"
+                  }
+                  disable={loading ? true : false}
                 />
               </form>
               <p className="mt-8 text-sm font-ShabnamRegular leading-5 text-[#565656]">
