@@ -10,6 +10,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { SignInInputsT } from "../../types/signin";
+import toast from "react-hot-toast";
+import Success from "../../assets/img/logo/success.svg";
 
 const siginSchema = yup.object().shape({
   userName: yup
@@ -47,6 +49,18 @@ export default function SignIn() {
     console.log(data);
     reset();
     navigate("/");
+    toast.custom((t) => (
+      <div
+        className={`${
+          t.visible ? "animate-enter" : "animate-leave"
+        } h-[40px] w-[350px] bg-[#76f18b] rounded-lg flex items-center justify-end`}
+      >
+        <p className="mr-2 font-ShabnamRegular text-[#000]">
+          .با موفقیت وارد شدید
+        </p>
+        <img src={Success} className="mr-4" />
+      </div>
+    ));
   };
 
   return (
