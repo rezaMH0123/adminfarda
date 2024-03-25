@@ -84,14 +84,14 @@ export default function SignIn() {
                 <SignInInput
                   register={register("password")}
                   placeholder="رمز عبور"
-                  className={`mt-6 w-full h-[44px] text-base font-ShabnamRegular leading-6 border px-[14px] rounded-lg outline-none ${
+                  className={` w-full h-[44px] text-base  font-ShabnamRegular leading-6 border px-[14px] rounded-lg outline-none ${
                     errors.password ? "border-[#F93838]" : "border-[#B3B3B3]"
                   }`}
                   type={`${showPassword ? "text" : "password"}`}
-                  spanClassname="absolute inset-y-11 left-0 pl-[14px] flex items-center cursor-pointer"
+                  spanClassname="absolute top-[50%] translate-y-[-50%] left-0 pl-[14px] flex items-center cursor-pointer"
                   icon={showPassword ? closedEye : openEye}
                   spanOnclick={() => setShowPassword(!showPassword)}
-                  containerClassname="relative"
+                  containerClassname="relative h-[44px] mt-6"
                 />
                 {errors.password && (
                   <p className="text-[#F93838] text-xs font-ShabnamRegular leading-5 mt-1">
