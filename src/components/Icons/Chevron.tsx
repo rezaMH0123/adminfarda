@@ -4,9 +4,15 @@ type IconProps = {
   className?: string;
   stroke?: string;
   fill?: string;
+  onClick?: () => void;
 };
 
-const IconChevron: React.FC<IconProps> = ({ className, fill, ...rest }) => {
+const IconChevron: React.FC<IconProps> = ({
+  className,
+  fill,
+  onClick,
+  ...rest
+}) => {
   return (
     <svg
       width="10"
@@ -15,6 +21,7 @@ const IconChevron: React.FC<IconProps> = ({ className, fill, ...rest }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      onClick={onClick}
       {...rest}
     >
       <path

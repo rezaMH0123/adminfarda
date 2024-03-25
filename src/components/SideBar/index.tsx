@@ -13,7 +13,7 @@ export default function SideBar() {
   return (
     <div
       dir="rtl"
-      className="flex flex-col justify-between h-[85%] w-[20%] bg-[#EFF4FF] rounded-lg"
+      className="flex flex-col justify-between h-[85%] w-[20%] bg-[#EFF4FF] rounded-lg font-ShabnamMedium"
     >
       <ul className=" flex flex-col gap-y-5  mt-16">
         <Link to="/">

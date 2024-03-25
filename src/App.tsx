@@ -5,15 +5,13 @@ import Comment from "./pages/Comment";
 import ManageFiles from "./pages/ManageFiles";
 import Categories from "./pages/Categories";
 import Labels from "./pages/Labels";
-import { useState } from "react";
 import SignIn from "./pages/auth/SignIn";
 import NotFound from "./pages/NotFound";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  // const [isLogin, setIsLoging] = useState(true);
   return (
-    <div className="border border-red-600 h-screen  overflow-hidden ">
+    <div className="h-screen  overflow-hidden ">
       <Toaster
         position="top-center"
         reverseOrder={true}
