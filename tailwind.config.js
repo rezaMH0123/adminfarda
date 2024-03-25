@@ -6,7 +6,15 @@ export default {
       custom1: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;",
     },
 
+
     extend: {
+            fontFamily: {
+        ShabnamRegular: ["ShabnamRegular"],
+        ShabnamMedium: ["ShabnamMedium"],
+        ShabnamBold: ["ShabnamBold"],
+
+      },
+      
       colors: {
         PrimaryBlue: {
           100: "#33BDF1",
@@ -18,8 +26,7 @@ export default {
           200: "#565656",
           300: "#B3B3B3",
         },
-      },
-    },
+
   },
   plugins: [],
 };
