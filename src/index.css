@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Regular";
+  font-family: "ShabnamRegular";
   src: local("Shabnam") format("truetype"), url("./assets/fonts/Shabnam.ttf");
 }
 
 @font-face {
-  font-family: "Medium";
+  font-family: "ShabnamMedium";
   src: local("Shabnam-Medium") format("truetype"),
     url("./assets/fonts/Shabnam-Medium.ttf");
 }
 
 @font-face {
-  font-family: "Bold";
+  font-family: "ShabnamBold";
   src: local("Shabnam-Bold") format("truetype"),
     url("./assets/fonts/Shabnam-Bold.ttf");
 }

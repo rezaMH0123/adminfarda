@@ -7,9 +7,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        regular: ["Regular"],
-        medium: ["Medium"],
-        bold: ["Bold"],
+        ShabnamRegular: ["ShabnamRegular"],
+        ShabnamMedium: ["ShabnamMedium"],
+        ShabnamBold: ["ShabnamBold"],
       },
     },
   },

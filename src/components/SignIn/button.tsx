@@ -1,10 +1,10 @@
-interface ButtonPropsI {
-  type: "submit";
-  className: string;
-  title: string;
-}
+import { SignInButtonPropsI } from "../../types/signin";
 
-export default function SignInButton({ type, className, title }: ButtonPropsI) {
+export default function SignInButton({
+  type,
+  className,
+  title,
+}: SignInButtonPropsI) {
   return (
     <button type={type} className={className}>
       {title}

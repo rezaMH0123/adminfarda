@@ -8,32 +8,45 @@ import SignInInput from "../../components/SignIn/input";
 import SignInButton from "../../components/SignIn/button";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useNavigate } from "react-router-dom";
+import { SignInInputsT } from "../../types/signin";
 
 const siginSchema = yup.object().shape({
-  userName: yup.string().required("نام کاربری خود را وارد نمایید"),
-  password: yup.string().required("رمز عبور خود را وارد نمایید"),
+  userName: yup
+    .string()
+    .required("نام کاربری خود را وارد نمایید")
+    .test({
+      name: "username is wrong",
+      message: "نام کاربردی وارد شده موجود نمی‌باشد",
+      test: (value) => value === "123",
+    }),
+  password: yup
+    .string()
+    .required("رمز عبور خود را وارد نمایید")
+    .test({
+      name: "password is wrong",
+      message: "رمز عبور وارد شده اشتباه می‌باشد",
+      test: (value) => value === "123",
+    }),
 });
-
-export type InputsT = {
-  userName: string;
-  password: string;
-};
 
 export default function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<InputsT>({
+  } = useForm<SignInInputsT>({
     resolver: yupResolver(siginSchema),
   });
 
-  const onSubmit: SubmitHandler<InputsT> = (data) => {
+  const onSubmit: SubmitHandler<SignInInputsT> = (data) => {
     console.log(data);
     reset();
+    navigate("/");
   };
 
   return (
@@ -42,10 +55,10 @@ export default function SignIn() {
         <div className="w-[44%] h-full flex items-center justify-center bg-[#FFFFFF]">
           <div dir="rtl" className="w-full flex items-center justify-center">
             <div className="w-[55%]">
-              <p className="text-[26px] font-bold leading-[35.55px] text-[#525252]">
+              <p className="text-[26px] font-ShabnamBold leading-[35.55px] text-[#525252]">
                 پنل ادمین بیمه هوشمند فردا
               </p>
-              <p className="mt-2 text-lg font-regular leading-6 text-[#565656]">
+              <p className="mt-2 text-lg font-ShabnamRegular leading-6 text-[#565656]">
                 خوش آمدید!
               </p>
               {/* signin form */}
@@ -54,7 +67,7 @@ export default function SignIn() {
                 <SignInInput
                   register={register("userName")}
                   placeholder="نام کاربری"
-                  className={`mt-6 w-full h-[44px] text-base font-regular leading-6 border px-[14px] rounded-lg outline-none ${
+                  className={`mt-6 w-full h-[44px] text-base font-ShabnamRegular leading-6 border px-[14px] rounded-lg outline-none ${
                     errors.userName ? "border-[#F93838]" : "border-[#B3B3B3]"
                   }`}
                   type="text"
@@ -63,7 +76,7 @@ export default function SignIn() {
                   containerClassname="relative"
                 />
                 {errors.userName && (
-                  <p className="text-[#F93838] text-xs font-regular leading-5 mt-1">
+                  <p className="text-[#F93838] text-xs font-ShabnamRegular leading-5 mt-1">
                     {errors.userName.message}
                   </p>
                 )}
@@ -71,7 +84,7 @@ export default function SignIn() {
                 <SignInInput
                   register={register("password")}
                   placeholder="رمز عبور"
-                  className={`mt-6 w-full h-[44px] text-base font-regular leading-6 border px-[14px] rounded-lg outline-none ${
+                  className={`mt-6 w-full h-[44px] text-base font-ShabnamRegular leading-6 border px-[14px] rounded-lg outline-none ${
                     errors.password ? "border-[#F93838]" : "border-[#B3B3B3]"
                   }`}
                   type={`${showPassword ? "text" : "password"}`}
@@ -81,18 +94,18 @@ export default function SignIn() {
                   containerClassname="relative"
                 />
                 {errors.password && (
-                  <p className="text-[#F93838] text-xs font-regular leading-5 mt-1">
+                  <p className="text-[#F93838] text-xs font-ShabnamRegular leading-5 mt-1">
                     {errors.password.message}
                   </p>
                 )}
                 {/* sigin button */}
                 <SignInButton
                   type="submit"
-                  className="mt-8 w-full h-[44px] bg-[#33BDF1] text-[#FFFFFF] text-base font-bold leading-5 rounded-lg"
+                  className="mt-8 w-full h-[44px] bg-[#33BDF1] text-[#FFFFFF] text-base font-ShabnamBold leading-5 rounded-lg"
                   title="ورود"
                 />
               </form>
-              <p className="mt-8 text-sm font-regular leading-5 text-[#565656]">
+              <p className="mt-8 text-sm font-ShabnamRegular leading-5 text-[#565656]">
                 در صورت فراموش کردن رمز عبور با واحد فنی ارتباط برقرار نمایید.
               </p>
             </div>

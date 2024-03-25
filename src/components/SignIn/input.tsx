@@ -1,15 +1,4 @@
-import { UseFormRegisterReturn } from "react-hook-form";
-
-interface InputPropsI {
-  register: UseFormRegisterReturn<string>;
-  placeholder: string;
-  className: string;
-  type: string;
-  spanClassname: string;
-  icon: string;
-  spanOnclick?: () => void;
-  containerClassname: string;
-}
+import { SignInInputPropsI } from "../../types/signin";
 
 export default function SignInInput({
   register,
@@ -20,7 +9,7 @@ export default function SignInInput({
   icon,
   spanOnclick,
   containerClassname,
-}: InputPropsI) {
+}: SignInInputPropsI) {
   return (
     <div className={containerClassname}>
       <input
