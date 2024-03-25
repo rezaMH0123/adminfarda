@@ -17,7 +17,7 @@ export default function Content() {
   return (
     <div
       dir="rtl"
-      className=" border border-[#E1E1E1] w-[80%] h-[75%] rounded-xl "
+      className=" border border-[#E1E1E1] w-[80%] h-[85%] rounded-xl "
     >
       <div className="header flex justify-between items-center px-6 h-[15%] ">
         <div className="right">
@@ -57,7 +57,7 @@ export default function Content() {
 
         <div className="border-b border-PrimaryBlack-300 h-[57%] ">
           {[...Array(6)].map((item) => (
-            <div className="h-[15%] mb-1 border border-red-600"></div>
+            <div className="h-[15%] mb-1 mt-1 border border-red-600"></div>
           ))}
         </div>
         <div className="flex gap-x-5 justify-end items-center  h-[15%]">
