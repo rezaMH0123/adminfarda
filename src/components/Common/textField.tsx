@@ -19,10 +19,16 @@ export default function TextField({
   type,
   spanOnclick,
   containerClassname,
+  register,
 }: TextFieldPropsI) {
   return (
     <div className={containerClassname}>
-      <input placeholder={placeholder} className={className} type={type} />
+      <input
+        placeholder={placeholder}
+        className={className}
+        type={type}
+        {...register}
+      />
       <span className={spanClassname} onClick={spanOnclick}>
         <img src={icon} />
       </span>

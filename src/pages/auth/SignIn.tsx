@@ -89,7 +89,7 @@ export default function SignIn() {
               <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
                 {/* username input */}
                 <TextField
-                  {...register("userName")}
+                  register={register("userName")}
                   placeholder="نام کاربری"
                   type="text"
                   className={`mt-6 w-full h-[44px] text-base font-ShabnamRegular leading-6 border px-[14px] rounded-lg outline-none ${
@@ -124,10 +124,10 @@ export default function SignIn() {
                 )}
                 {/* sigin button */}
                 <Button
-                  type="submit"
                   backgroundColor="#33BDF1"
                   height={"44px"}
                   width={"100%"}
+                  type="submit"
                   className="mt-8 font-ShabnamBold leading-5 disabled:bg-[#a2e5fd] disabled:cursor-not-allowed"
                   title={
                     loading ? <Loading className={"bg-[#565656]"} /> : "ورود"
