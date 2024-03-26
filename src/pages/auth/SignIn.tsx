@@ -4,15 +4,19 @@ import person from "../../assets/img/logo/Vector.svg";
 import { useForm, SubmitHandler } from "react-hook-form";
 import fardaIns from "../../assets/img/logo/signinFardaBg.svg";
 import { useState } from "react";
-import SignInInput from "../../components/SignIn/input";
-import SignInButton from "../../components/SignIn/button";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
-import { SignInInputsT } from "../../types/signin";
 import toast from "react-hot-toast";
 import Success from "../../assets/img/logo/success.svg";
 import Loading from "../../components/Loading";
+import TextField from "../../components/Common/textField";
+import Button from "../../components/Common/button";
+
+type SignInInputsT = {
+  userName: string;
+  password: string;
+};
 
 const siginSchema = yup.object().shape({
   userName: yup
@@ -84,13 +88,13 @@ export default function SignIn() {
               {/* signin form */}
               <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
                 {/* username input */}
-                <SignInInput
-                  register={register("userName")}
+                <TextField
+                  {...register("userName")}
                   placeholder="نام کاربری"
+                  type="text"
                   className={`mt-6 w-full h-[44px] text-base font-ShabnamRegular leading-6 border px-[14px] rounded-lg outline-none ${
                     errors.userName ? "border-[#F93838]" : "border-[#B3B3B3]"
                   }`}
-                  type="text"
                   spanClassname="absolute inset-y-11 left-0 pl-[14px] flex items-center"
                   icon={person}
                   containerClassname="relative"
@@ -101,7 +105,7 @@ export default function SignIn() {
                   </p>
                 )}
                 {/* password input */}
-                <SignInInput
+                <TextField
                   register={register("password")}
                   placeholder="رمز عبور"
                   className={` w-full h-[44px] text-base  font-ShabnamRegular leading-6 border px-[14px] rounded-lg outline-none ${
@@ -119,9 +123,12 @@ export default function SignIn() {
                   </p>
                 )}
                 {/* sigin button */}
-                <SignInButton
+                <Button
                   type="submit"
-                  className="mt-8 w-full h-[44px] bg-[#33BDF1] text-[#FFFFFF] text-base font-ShabnamBold leading-5 rounded-lg flex items-center justify-center disabled:bg-[#a2e5fd] disabled:cursor-not-allowed"
+                  backgroundColor="#33BDF1"
+                  height={"44px"}
+                  width={"100%"}
+                  className="mt-8 font-ShabnamBold leading-5 disabled:bg-[#a2e5fd] disabled:cursor-not-allowed"
                   title={
                     loading ? <Loading className={"bg-[#565656]"} /> : "ورود"
                   }
