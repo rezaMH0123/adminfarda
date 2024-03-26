@@ -8,7 +8,6 @@ import IconMageFiles from "../Icons/ManageFilesIcon";
 export default function SideBar() {
   const location = useLocation();
 
-  console.log(location.pathname);
   const active = "shadow-custom1 text-[#33BDF1]";
   return (
     <div
