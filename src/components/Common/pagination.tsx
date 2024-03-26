@@ -26,7 +26,7 @@ export default function Pagination({
       )}
 
       <div className="flex justify-center items-center gap-x-3 border border-[#BABABA] w-[160px] rounded-xl py-2 px-2 ">
-        <span className="text-[#404040] ">
+        <span className="text-[#404040] select-none">
           صفحه {currentPage} از {allPage}
         </span>
       </div>
