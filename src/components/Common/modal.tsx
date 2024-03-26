@@ -5,6 +5,7 @@ type ModalProps = {
   children: ReactNode;
   width: number;
   height: number;
+  openModal?: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
