@@ -27,7 +27,8 @@ export default function Modal({
     >
       <div
         onClick={handleModalClick}
-        className={`animate__animated  animate__fadeInDown flex justify-center items-center bg-white w-[${width}%] h-[${height}%] rounded-lg`}
+        style={{ width: `${width}%`, height: `${height}%` }}
+        className={`animate__animated  animate__fadeInDown flex justify-center items-center bg-white rounded-lg`}
       >
         {children}
       </div>
