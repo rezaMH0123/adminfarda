@@ -5,10 +5,13 @@ import Pagination from "../components/Common/pagination";
 import { useState } from "react";
 import RecycleBin from "../components/Icons/RecycleBin";
 import Edit from "../components/Icons/Edit";
+import Modal from "../components/Common/modal";
+import ContentsModalBody from "../components/ContentsModalBody";
 
 export default function Content() {
   const [allPage, setAllPage] = useState<number>(8);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [openModal, setOpenModal] = useState(false);
   const [data, setData] = useState([
     {
       id: 1,
@@ -83,7 +86,10 @@ export default function Content() {
             <span className="text-PrimaryBlack-300">فیلتر</span>
             <img src={filrterIcon} alt="filrterIcon" />
           </div>
-          <AdditionButton className="w-[152px] h-[44px] font-ShabnamMedium ">
+          <AdditionButton
+            onClick={() => setOpenModal(true)}
+            className="w-[152px] h-[44px] font-ShabnamMedium "
+          >
             <span className="text-[14px]">اضافه کردن</span>
             <img src={plusIcon} alt="plusIcon" />
           </AdditionButton>
@@ -150,6 +156,20 @@ export default function Content() {
           />
         </div>
       </div>
+      {openModal ? (
+        <Modal
+          width={70}
+          height={90}
+          setOpenModal={setOpenModal}
+          openModal={openModal}
+        >
+          <div className="w-full h-full">
+            <ContentsModalBody />
+          </div>
+        </Modal>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
