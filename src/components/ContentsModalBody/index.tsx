@@ -1,7 +1,6 @@
 import { useState } from "react";
 import TextField from "../Common/textField";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default function ContentsModalBody() {
   const [title, setTitle] = useState("");
@@ -29,10 +28,9 @@ export default function ContentsModalBody() {
             setTitle={setSummary}
           />
         </div>
-        <div className="border border-green-600 h-[35%]">
-          <span className="font-ShabnamRegular">توضیحات</span>
+        <div className="h-fit">
+          <span className="font-ShabnamRegular block mb-4">توضیحات</span>
           <CKEditor
-            // editor={ClassicEditor}
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             editor={(window as any).ClassicEditor}
             onChange={(_event, editor) => {
