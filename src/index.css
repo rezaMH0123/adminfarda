@@ -23,6 +23,28 @@
 .ck.ck-balloon-panel.ck-powered-by-balloon .ck.ck-powered-by {
   display: none !important;
 }
+.ck .ck-reset .ck-editor .ck-rounded-corners {
+  border-radius: 50px !important;
+}
+.ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable,
+.ck.ck-editor__main > .ck-editor__editable.ck-rounded-corners {
+  border-radius: var(--ck-border-radius);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.ck-reset_all :not(.ck-reset_all-excluded *),
+.ck.ck-reset_all {
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+}
+.ck.ck-editor__editable.ck-focused:not(.ck-editor__nested-editable) {
+  border: 1px solid #ccc !important;
+  box-shadow: none !important;
+}
+
+.ck-editor__editable {
+  min-height: 150px !important;
+}
 
 @font-face {
   font-family: "ShabnamRegular";
