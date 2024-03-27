@@ -124,11 +124,10 @@ export default function SignIn() {
                 )}
                 {/* sigin button */}
                 <Button
-                  backgroundColor="#33BDF1"
                   height={"44px"}
                   width={"100%"}
                   type="submit"
-                  className="mt-8 font-ShabnamBold leading-5 disabled:bg-[#a2e5fd] disabled:cursor-not-allowed"
+                  className="mt-8 font-ShabnamBold bg-[#33BDF1] text-[#FFFFFF] leading-5 disabled:bg-[#a2e5fd] disabled:cursor-not-allowed"
                   title={
                     loading ? <Loading className={"bg-[#565656]"} /> : "ورود"
                   }
