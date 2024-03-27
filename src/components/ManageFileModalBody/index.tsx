@@ -5,17 +5,31 @@ import AploadBg from "../../assets/img/tools/uploadBg.svg";
 
 export default function ManageFileModalBody({
   setOpenModal,
+  photos,
+  setPhotos,
+  files,
+  setFiles,
 }: {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  photos: any[];
+  setPhotos: React.Dispatch<React.SetStateAction<never[]>>;
+  files: any[];
+  setFiles: React.Dispatch<React.SetStateAction<never[]>>;
 }) {
-  const [file, setFile] = useState<File | undefined>();
+  const [file, setFile] = useState<any | undefined>();
 
   const handleFileInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const image = e.target.files?.[0];
     setFile(image);
+    if (file?.type.slice(0, 5) === "image") {
+      photos.push(file);
+    } else if (file?.type.slice(0, 11) === "application") {
+      files.push(file);
+    }
   };
 
   console.log(file);
+  console.log(file?.type.slice(0, 5));
 
   return (
     <div>
@@ -55,6 +69,15 @@ export default function ManageFileModalBody({
           type="submit"
           className="text-sm w-[50%] font-ShabnamBold text-[#FFFFFF] bg-[#33BDF1] leading-5 disabled:bg-[#a2e5fd] disabled:cursor-not-allowed"
           title={"افزودن"}
+          onClick={() => {
+            if (file?.type.slice(0, 5) === "image") {
+              photos.push(file);
+              setOpenModal(false);
+            } else if (file?.type.slice(0, 11) === "application") {
+              files.push(file);
+              setOpenModal(false);
+            }
+          }}
         />
       </div>
     </div>

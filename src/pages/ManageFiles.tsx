@@ -14,6 +14,11 @@ export default function ManageFiles() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [photos, setPhotos] = useState([]);
+  const [files, setFiles] = useState([]);
+
+  console.log(photos);
+  console.log(files);
 
   const nextPageClick = () => {
     setCurrentPage((prev) => prev + 1);
@@ -77,7 +82,13 @@ export default function ManageFiles() {
             </div>
           </div>
           <div className="h-[92%] grid grid-cols-3 gap-6 mt-3">
-            {loading ? <Skeleton /> : tab === "photo" ? <Photos /> : <Files />}
+            {loading ? (
+              <Skeleton />
+            ) : tab === "photo" ? (
+              <Photos photos={photos} setPhotos={setPhotos} />
+            ) : (
+              <Files files={files} setFiles={setFiles} />
+            )}
           </div>
         </div>
         <div className="flex gap-x-5 justify-end items-center  h-[15%]">
@@ -97,7 +108,13 @@ export default function ManageFiles() {
           openModal={openModal}
         >
           <div className="w-full h-full">
-            <ManageFileModalBody setOpenModal={setOpenModal} />
+            <ManageFileModalBody
+              setOpenModal={setOpenModal}
+              photos={photos}
+              setPhotos={setPhotos}
+              files={files}
+              setFiles={setFiles}
+            />
           </div>
         </Modal>
       )}
