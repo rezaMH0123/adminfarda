@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+.ck-reset_all :not(.ck-reset_all-excluded *),
+.ck.ck-reset_all {
+  background: #eff4ff !important;
+  direction: rtl;
+}
+
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused) {
+  direction: rtl !important;
+}
+
+.ck.ck-balloon-panel.ck-powered-by-balloon
+  .ck.ck-powered-by
+  .ck-powered-by__label {
+  display: none !important;
+}
+.ck .ck-icon .ck-reset_all-excluded {
+  display: none !important;
+}
+.ck.ck-balloon-panel.ck-powered-by-balloon .ck.ck-powered-by {
+  display: none !important;
+}
+
 @font-face {
   font-family: "ShabnamRegular";
   src: local("Shabnam") format("truetype"), url("./assets/fonts/Shabnam.ttf");
