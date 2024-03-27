@@ -1,8 +1,7 @@
-import { FC } from "react";
-import { SHARED_STRING } from "../../../constants/strings/shared.string";
-import AdditionButton from "../../../components/Common/additionButton";
-import plusIcon from "../../../assets/img/tools/plus.svg";
-import filrterIcon from "../../../assets/img/tools/filter.svg";
+import { SHARED_STRING } from "../../constants/strings/shared.string";
+import AdditionButton from "../../components/Common/additionButton";
+import plusIcon from "../../assets/img/tools/plus.svg";
+import filrterIcon from "../../assets/img/tools/filter.svg";
 
 type ContentHeaderSectionProps = {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
