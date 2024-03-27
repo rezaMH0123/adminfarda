@@ -5,12 +5,15 @@ import { useEffect, useState } from "react";
 import Skeleton from "../components/Skeleton";
 import Photos from "../components/ManageFiles/photos";
 import Files from "../components/ManageFiles/files";
+import Modal from "../components/Common/modal";
+import ManageFileModalBody from "../components/ManageFileModalBody";
 
 export default function ManageFiles() {
   const [tab, setTab] = useState<"photo" | "file">("photo");
   const [allPage, setAllPage] = useState<number>(8);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   const nextPageClick = () => {
     setCurrentPage((prev) => prev + 1);
@@ -22,7 +25,7 @@ export default function ManageFiles() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -39,7 +42,10 @@ export default function ManageFiles() {
           </span>
         </div>
         <div className="left flex justify-end items-center gap-x-5 w-[30%] h-full">
-          <AdditionButton className="w-[152px] h-[44px] font-ShabnamMedium ">
+          <AdditionButton
+            className="w-[152px] h-[44px] font-ShabnamMedium"
+            onClick={() => setOpenModal(true)}
+          >
             <span className="text-[14px]">اضافه کردن</span>
             <img src={plusIcon} alt="plusIcon" />
           </AdditionButton>
@@ -83,6 +89,18 @@ export default function ManageFiles() {
           />
         </div>
       </div>
+      {openModal && (
+        <Modal
+          width={35}
+          height={55}
+          setOpenModal={setOpenModal}
+          openModal={openModal}
+        >
+          <div className="w-full h-full">
+            <ManageFileModalBody setOpenModal={setOpenModal} />
+          </div>
+        </Modal>
+      )}
     </div>
   );
 }
