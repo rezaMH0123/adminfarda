@@ -7,23 +7,24 @@ interface ButtonPropsI {
   disable?: boolean;
   height: string;
   width: string;
-  backgroundColor: string;
+  onClick?: () => void;
 }
 
 export default function Button({
-  backgroundColor,
   height,
   title,
   width,
   className,
   disable,
   type,
+  onClick,
 }: ButtonPropsI) {
   return (
     <button
       type={type}
-      className={`bg-[${backgroundColor}] h-[${height}] w-[${width}] text-base text-[#FFFFFF] rounded-lg flex items-center justify-center gap-x-2 ${className}`}
+      className={`h-[${height}] w-[${width}] text-base rounded-lg flex items-center justify-center gap-x-2 ${className}`}
       disabled={disable}
+      onClick={onClick}
     >
       {title}
     </button>
