@@ -1,12 +1,10 @@
-import plusIcon from "../assets/img/tools/plus.svg";
-import filrterIcon from "../assets/img/tools/filter.svg";
-import AdditionButton from "../components/Common/additionButton";
 import Pagination from "../components/Common/pagination";
 import { useState } from "react";
 import RecycleBin from "../components/Icons/RecycleBin";
 import Edit from "../components/Icons/Edit";
 import Modal from "../components/Common/modal";
 import ContentsModalBody from "../components/ContentsModalBody";
+import ContentHeaderSection from "../sections/content/view/ContentHeaderSection";
 
 export default function Content() {
   const [allPage, setAllPage] = useState<number>(8);
@@ -75,26 +73,7 @@ export default function Content() {
       dir="rtl"
       className=" border border-[#E1E1E1] w-[80%] h-[85%] rounded-xl "
     >
-      <div className="header flex justify-between items-center px-6 h-[15%] ">
-        <div className="right">
-          <span className="text-[20px] font-ShabnamMedium font-semibold">
-            محتوا
-          </span>
-        </div>
-        <div className="left flex justify-end items-center gap-x-5  w-[30%] h-full">
-          <div className="flex justify-center items-center cursor-pointer font-ShabnamMedium">
-            <span className="text-PrimaryBlack-300">فیلتر</span>
-            <img src={filrterIcon} alt="filrterIcon" />
-          </div>
-          <AdditionButton
-            onClick={() => setOpenModal(true)}
-            className="w-[152px] h-[44px] font-ShabnamMedium "
-          >
-            <span className="text-[14px]">اضافه کردن</span>
-            <img src={plusIcon} alt="plusIcon" />
-          </AdditionButton>
-        </div>
-      </div>
+      <ContentHeaderSection setOpenModal={setOpenModal} />
       <div className="centerContetnt px-6 h-full w-full">
         <div className="headChart flex  h-[60px] font-ShabnamMedium pt-3">
           <div className="flex items-center w-[40%]">
@@ -158,8 +137,8 @@ export default function Content() {
       </div>
       {openModal ? (
         <Modal
-          width={70}
-          height={90}
+          width={65}
+          height={94}
           setOpenModal={setOpenModal}
           openModal={openModal}
         >
